@@ -1,6 +1,6 @@
-# 🚀 AI Engineering Assignment: Cognitive Routing & RAG System
+#  AI Engineering Assignment: Cognitive Routing & RAG System
 
-## 📌 Overview
+##  Overview
 
 This project implements a Cognitive AI System that simulates intelligent bot behavior using:
 
@@ -16,7 +16,7 @@ The system mimics how AI agents decide:
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 The goal of this assignment was to build a system with three core capabilities:
 
@@ -47,7 +47,7 @@ Example of injection:
 
 ---
 
-## 💡 Solution Overview
+##  Solution Overview
 
 The system is divided into three main components:
 
@@ -59,9 +59,9 @@ The system is divided into three main components:
 
 ---
 
-## ⚙️ How It Works
+##  How It Works
 
-### 🔹 Phase 1: Cognitive Routing
+###  Phase 1: Cognitive Routing
 
 - Bot personas are converted into embeddings  
 - Incoming post is also embedded  
@@ -72,7 +72,7 @@ This ensures only relevant bots respond.
 
 ---
 
-### 🔹 Phase 2: Content Engine
+###  Phase 2: Content Engine
 
 Steps:
 
@@ -96,7 +96,7 @@ Steps:
 }
 ```
 
-### 🔹 Phase 3: Combat Engine (RAG + Defense)
+###  Phase 3: Combat Engine (RAG + Defense)
 
 ## Context Awareness
 
