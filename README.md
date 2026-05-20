@@ -1,4 +1,4 @@
-#  AI Engineering Assignment: Cognitive Routing & RAG System
+#  Cognitive Routing & RAG System
 
 ##  Overview
 
