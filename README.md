@@ -133,7 +133,8 @@ The bot ignores malicious instructions and continues the argument naturally.
 
 ### Project Structure
 
-ai-assignment/
+```text
+RAG_project/
 │
 ├── router.py              # Phase 1: Routing logic
 ├── content_engine.py     # Phase 2: Content generation
@@ -143,6 +144,7 @@ ai-assignment/
 ├── requirements.txt      # Dependencies
 ├── .env.example          # Environment variables
 └── README.md             # Documentation
+```
 
 ### Execution Summary
 
