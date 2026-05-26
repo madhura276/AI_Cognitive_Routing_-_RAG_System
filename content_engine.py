@@ -3,16 +3,13 @@ import os
 import json
 from langchain_groq import ChatGroq
 
-# Load environment variables
 load_dotenv()
 
-# Initialize LLM
 llm = ChatGroq(
     model="llama-3.1-8b-instant",
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-# ---------------- MOCK SEARCH TOOL ---------------- #
 def mock_searxng_search(query: str):
     query = query.lower()
 
@@ -25,8 +22,6 @@ def mock_searxng_search(query: str):
     else:
         return "Global tech trends are evolving rapidly"
 
-
-# ---------------- SAFE JSON PARSER ---------------- #
 def safe_json_parse(text: str):
     try:
         return json.loads(text)
@@ -36,8 +31,6 @@ def safe_json_parse(text: str):
             "raw_output": text
         }
 
-
-# ---------------- DECIDE TOPIC ---------------- #
 def decide_topic(persona: str):
 
     prompt = f"""
@@ -55,8 +48,6 @@ RULES:
     response = llm.invoke(prompt).content.strip()
     return response
 
-
-# ---------------- GENERATE POST ---------------- #
 def generate_post(bot_id: str, persona: str, context: str):
 
     prompt = f"""
@@ -89,8 +80,6 @@ Return ONLY valid JSON:
 
     return safe_json_parse(response)
 
-
-# ---------------- MAIN FLOW ---------------- #
 def run_content_engine(bot_id: str, persona: str):
 
     topic = decide_topic(persona)
@@ -100,8 +89,6 @@ def run_content_engine(bot_id: str, persona: str):
 
     return result
 
-
-# ---------------- TEST ---------------- #
 if __name__ == "__main__":
 
     persona = """I believe AI and crypto will solve all human problems.
