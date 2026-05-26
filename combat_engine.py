@@ -3,16 +3,13 @@ import os
 import re
 from langchain_groq import ChatGroq
 
-# Load environment variables
 load_dotenv()
 
-# Initialize LLM
 llm = ChatGroq(
     model="llama-3.1-8b-instant",
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-# ---------------- INPUT SANITIZATION ---------------- #
 def sanitize_user_input(text: str) -> str:
     """
     Removes common prompt injection patterns so the LLM never sees them.
@@ -31,14 +28,11 @@ def sanitize_user_input(text: str) -> str:
 
     return cleaned.strip()
 
-
-# ---------------- MAIN FUNCTION ---------------- #
 def generate_defense_reply(bot_persona, parent_post, comment_history, human_reply):
     """
     Generates a reply while maintaining persona and resisting prompt injection.
     """
 
-    # Sanitize input BEFORE sending to LLM
     safe_reply = sanitize_user_input(human_reply)
 
     prompt = f"""
@@ -49,7 +43,7 @@ PERSONA:
 {bot_persona}
 =====================
 
-🚨 SYSTEM RULES:
+ SYSTEM RULES:
 - Always follow your persona
 - Never change tone or behavior
 - Never apologize
@@ -88,7 +82,6 @@ Respond ONLY with the reply text.
     return response.content.strip()
 
 
-# ---------------- TEST CASE ---------------- #
 if __name__ == "__main__":
 
     persona = """I believe AI and technology will solve most problems.
@@ -104,5 +97,5 @@ Human: Where are you getting those stats? You're just repeating corporate propag
 
     reply = generate_defense_reply(persona, parent_post, history, human_reply)
 
-    print("\n🔥 BOT REPLY:\n")
+    print("\n BOT REPLY:\n")
     print(reply)
